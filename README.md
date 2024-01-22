@@ -17,9 +17,9 @@ We used a color picker to get the RGB values for the colors showed by the client
 
 We may need to confirm the exact values with their color palette.
 
-- <span style="background-color: rgb(23, 38, 98); color: rgb(23, 38, 98)">_______</span> DPI Primary: rgb(23, 38, 98) 
-- <span style="background-color: rgb(130, 213, 102); color: rgb(130, 213, 102)">_______</span> DPI Accent: rgb(130, 213, 102)
-- <span style="background-color: rgb(236, 101, 78); color: rgb(236, 101, 78)">_______</span> Custom Red: rgb(236, 101, 78)
+- DPI Primary: rgb(23, 38, 98) 
+- DPI Accent: rgb(130, 213, 102)
+- Custom Red: rgb(236, 101, 78)
 
 ## Dimensions
 - Larger screen
@@ -53,12 +53,11 @@ We may need to confirm the exact values with their color palette.
     - card footer
       - includes a progress bar
 2. We compartimentalize as much as possible to make our code more readable and maintanable. This includes separating the style in its own stylesheet, declaring theme colors as variables, grouping the class selectors to match the parts mentioned previously as much as possible.
-3. 
-4. We tackled each part one by one and make sure it matches the target as closely as possible, for the larger and the smaller screens.
+3. We tackled each part one by one and make sure it matches the target as closely as possible, for the larger and the smaller screens.
 
 # Challenges faced
-1. Trying not to think about all the possible cases. Client's requirements include two screenshots for two different, relatively large sizes. With our limited timed, we made the choice not to make it mobile responsive, for which it would probably be best to hide the sidebar, or make it a top navbar with a hamburger menu. A mobile version would probably also call for cutting down some images.
-2. We could not find the exact matching font: we know it's a sans-serif font. We tried some online tool to find matching fonts but they were not 100% accurate. We ended up finding the best fit within the ones available natively for most browsers.
+1. Trying not to think about all the possible cases. Client's requirements include two screenshots for two different, relatively large sizes. With our limited timed, the choice was made not to make it mobile responsive, for which it would probably be best to hide the sidebar, or make it a top navbar with a hamburger menu. A mobile version would probably also call for cutting down some images.
+2. Finding the exact matching sans-serif font. We tried some online tool to find matching fonts but they were not 100% accurate. We ended up finding the best fit within the ones available natively for most browsers.
 3. Missing assets: a few assets were missing. We used as close as possible replacements, but can easily replace them if the client provides us with their required files.
 4. Nav links: some trouble aligning icons correctly. Looking closely at our code, it was coming from the mixed nature of the icons and the way they were shown (svg shown through an img tag vs svg shown with Font Awesome with a class). We fixed this by showing the svg file we have on hand as a CSS background image. This also made it easier to handle changing the icon for hover and active link.
 5. Getting the current navigation link to show in red for both the text and its icon was challenging given the set up (switching from hollow to solid icon). We did this with a multiplication of CSS selectors, but it's hardly scalable. This is a point that can be improved later on.

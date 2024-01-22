@@ -1,114 +1,74 @@
-# Take Home Assignment
+# Project Overview
 
-Thank you for considering this role. As part of our recruitment process, we invite you to participate in this take-home assignment tailored for the Jr. Frontend Developer position. This exercise is an opportunity for you to demonstrate your technical skills, coding style, and approach to problem-solving in a practical context.
+Our task is to develop a web page based on a provided design.
 
-We value your time and effort in completing this task and hope you find it both challenging and enjoyable. It's a chance for us to see how you approach and solve real-world problems, and for you to get a taste of the kind of work we do.
+<img src="screens/larger_screen.png" alt="Provided design - larger screen" width="auto" max-height="500px">
+<img src="screens/smaller_screen.png" alt="Provided design - smaller screen" width="auto" max-height="500px">
 
-## Problem Description
+*Provided design - Larger screen and smaller screen*
 
-### Project Overview
+# Preliminary work
 
-Your task is to develop a web page based on a provided design. This exercise is designed to evaluate your ability to accurately translate a design into a functional HTML page, demonstrating your attention to detail, proficiency in HTML and CSS, and ability to work with provided assets.
+## Identifying the various elements
+![Identifying the various elements](screens/larger_screen_marked_up.jpg)
 
-### Specifics of the Task
+## Color palette
+We used a color picker to get the RGB values for the colors showed by the client in the mockup. 
 
-1. **Design Implementation**
-   - You will be provided with images of the web page design. The images are present in the `screens` directory. Your task is to replicate these designs as closely as possible in HTML and CSS.
-   - Pay close attention to layout, spacing, font choices, and color schemes to ensure your page closely matches the provided design.
-2. **Assets**
-   - All necessary assets, such as images and icons will be provided.
-   - You are expected to use these assets appropriately to achieve a result that is faithful to the design.
-3. **Responsiveness**
-   - It is important to make the page responsive to different screen sizes.
-   - The page should maintain its visual integrity and usability across various devices.
-4. **Interactivity**
-   - The page doesn't need to be dynamic, but basic interactivity (like hover effects) is encouraged to enhance user experience.
+We may need to confirm the exact values with their color palette.
 
-### Deliverables
+- <span style="background-color: rgb(23, 38, 98); color: rgb(23, 38, 98)">_______</span> DPI Primary: rgb(23, 38, 98) 
+- <span style="background-color: rgb(130, 213, 102); color: rgb(130, 213, 102)">_______</span> DPI Accent: rgb(130, 213, 102)
+- <span style="background-color: rgb(236, 101, 78); color: rgb(236, 101, 78)">_______</span> Custom Red: rgb(236, 101, 78)
 
-Upon completion of the assignment, please follow these steps to submit your work:
+## Dimensions
+- Larger screen
+  - Overall: 2300px x 1654px
+  - Navbar: ~ 490px (or 21% of the width)
+  - Cards: 510px x 630px
 
-1. **Create a New Git Repository:**
-   - Initialize a new Git repository in your project directory.
-   - Ensure the repository includes:
-      - The HTML page.
-      - The CSS file.
-      - The assets directory.
-      - The `package.json` and `package-lock.json` files.
-   - Please **do not include** the `node_modules` directory in your repository.
+- Smaller screen
+  - Overall: 1236px x 1644px
+  - Navbar: ~ 370px (or 30% of the width)
+  - Cards: 360px x 470px
 
-2. **Commit and Push Your Code:**
-   - Commit your code to the Git repository.
-   - Push the commit(s) to a new repository on GitHub.
+## Interactivity 
+- Active nav link has a different color
+- Hover for nav links
+- Hover for course arrow (+ when clicked?)
 
-3. **Share the Repository Link:**
-   - Once your code is pushed, please share the link to the repository with me. You can send the link via email to me.
+# Approach
+1. Our preliminary work allows us to break down the assignment into smaller manageable parts. The parts and subparts are:
+  - sidebar
+    - logo
+    - navigation
+    - profile
+    - footer
+  - main collection of cards
+    - title
+    - cards
+  - individual cards
+    - card header
+    - card content
+    - card footer
+      - includes a progress bar
+2. We compartimentalize as much as possible to make our code more readable and maintanable. This includes separating the style in its own stylesheet, declaring theme colors as variables, grouping the class selectors to match the parts mentioned previously as much as possible.
+3. 
+4. We tackled each part one by one and make sure it matches the target as closely as possible, for the larger and the smaller screens.
 
-4. **Include a README File:**
-   - In the repository, include a README file that explains:
-      - Your approach to the assignment.
-      - Any challenges you faced and how you overcame them.
-   - This README is crucial for understanding your thought process and problem-solving approach.
+# Challenges faced
+1. Trying not to think about all the possible cases. Client's requirements include two screenshots for two different, relatively large sizes. With our limited timed, we made the choice not to make it mobile responsive, for which it would probably be best to hide the sidebar, or make it a top navbar with a hamburger menu. A mobile version would probably also call for cutting down some images.
+2. We could not find the exact matching font: we know it's a sans-serif font. We tried some online tool to find matching fonts but they were not 100% accurate. We ended up finding the best fit within the ones available natively for most browsers.
+3. Missing assets: a few assets were missing. We used as close as possible replacements, but can easily replace them if the client provides us with their required files.
+4. Nav links: some trouble aligning icons correctly. Looking closely at our code, it was coming from the mixed nature of the icons and the way they were shown (svg shown through an img tag vs svg shown with Font Awesome with a class). We fixed this by showing the svg file we have on hand as a CSS background image. This also made it easier to handle changing the icon for hover and active link.
+5. Getting the current navigation link to show in red for both the text and its icon was challenging given the set up (switching from hollow to solid icon). We did this with a multiplication of CSS selectors, but it's hardly scalable. This is a point that can be improved later on.
+6. Avoiding creating too many different and repetitive classes, especially when working on aligning items for the navbar. To do this, I switched to a class-based styling, similarly to Bootstrap.
+7. Getting the various element to the right size for the different screen sizes, while keeping the code organized. The main breakpoint is declared at the very bottom of the CSS stylesheet. The variying font size is managed throughout the CSS stylesheet.
+8. Getting the green rectangle functional. We only have one set of screenshots showing one static page, so we could assume this green rectangle is static. However, we may have reasons to believe it's dynamically showing the active navigation link since it is perfectly aligned with the "Course" navigation link. I was not familiar with "::after" but after a quick search and some tinkering I was able to reproduce it.
 
-### Points to Note
-
-- The provided design should be considered as a final client requirement. Your ability to deliver a product that matches the client's expectation is key.
-- Focus on the quality of your code, including its structure, readability, and comments where necessary.
-- While external libraries can be used, over-reliance on them for basic styling may negatively impact the evaluation of your fundamental CSS skills.
-- The deadline for assignment submission is **9:00 AM, Monday, January 22nd, 2024**. Please submit your work before the deadline to ensure it is evaluated on time.
-
-### Evaluation Criteria
-
-Your submission will be evaluated on:
-
-- **Accuracy:** How well does your page match the provided design?
-- **Code Quality:** Cleanliness, organization, and efficiency of your code.
-- **Attention to Detail:** Alignment with the design elements and overall aesthetics.
-- **Responsiveness and Interactivity:** Adaptability to different devices and basic user interactions.
-
-## Getting Started with the Assignment
-
-To ensure a smooth start to your project, we've set up some initial steps. Following these steps will help you get up and running with the provided HTML page and the Node.js HTTP server, which you'll use to serve your page.
-
-### Step 1: Clone this repository
-
-You can either download the repository as a ZIP file or clone it using Git. 
-
-### Step 2: Review the Provided HTML Page
-
-You’ll begin your assignment with a basic HTML page. This page is configured to be the starting point of your project.
-
-### Step 3: Setting Up Node.js
-
-If you haven't already, you will need to install Node.js. This can be done by visiting the [Node.js website](https://nodejs.org/) and downloading the installer for your operating system.
-
-### Step 4: Serving the HTML Page with Node.js
-
-After installing Node.js, follow these steps to serve the HTML page using the Node.js environment:
-
-1. **Install Dependencies:**
-   - Open your terminal or command prompt.
-   - Navigate to the directory where your project is located.
-   - Run the command **`npm install`**.
-   - This will install **`http-server`** and any other necessary dependencies as defined in the **`package.json`**.
-2. **Start the Server:**
-   - In the same directory, run the command **`http-server`**.
-   - This will start a local web server.
-3. **Accessing Your Page:**
-   - Open a web browser and go to **`http://localhost:8080`**.
-   - You should see the provided HTML page being served.
-
-By using the **`package.json`** file provided, we ensure that you have all the necessary tools and versions required for this assignment. It is important to run **`npm install`** to correctly set up your environment before starting development.
-
-### Important Notes
-
-- **Do Not Alter the Server Configuration:** The **`http-server`** setup provided should not be changed. This ensures consistency in how the application is run and evaluated.
-- **Focus on Design Implementation:** Your primary task is to modify and enhance the provided HTML page to match the design image. The server setup is merely a tool to help you view your progress.
-
-### Troubleshooting
-
-If you encounter any issues with setting up Node.js or the **`http-server`**, please refer to the respective documentation or reach out for assistance.
-
-## Additional Assistance
-
-Please note that if you have any questions or need clarification on any aspect of the assignment, do not hesitate to reach out to me. Whether it's a technical query, a question about the design specifications, or a request for further information about the assignment's context, I am here to assist you.
+# Going further
+1. Currently, the progression bar is static. It would need to be able to take a number from 0 to 100% from the backend and dynamically show the corresponding progression bar.
+2. Discussing with the client the need or not for full mobile responsiveness.
+3. Working on other pages (syllabus, etc.).
+4. Adding more user interactions with JavaScript.
+5. (Bridge the gap with the backend)

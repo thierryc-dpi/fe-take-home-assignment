@@ -1,10 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
+  
 <head>
     <meta charset="UTF-8">
-    <title>Take Home Assignment</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="assets/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js"></script>
+    <title>Discovery Partners Institute</title>
 </head>
+
 <body>
-<h1>Hello world!</h1>
+
+  <nav class="navbar d-flex flex-column justify-content-between">
+    <div class="d-flex flex-column flex-centered">
+      <a href="/" class="logo">
+        <img src="assets/DPI Logo.png" alt="DPI Logo">
+      </a>
+      <ul class="navlist">
+        <li><a href="/" class="nav-current"><i class="nav-course-icon"></i>Courses</a></li>
+        <li><a href="/"><i class="fa-solid fa-arrow-right-from-bracket"></i>Log out</a></li>
+      </ul>
+    </div>
+    <div class="nav-footer d-flex flex-column flex-centered">
+      <div class="d-flex flex-column flex-centered">
+        <img src="assets/Profile Thumbnail.png" alt="Avatar">
+        <p>Miles Morales</p>
+      </div>
+      <div>
+        <p class="copyright">&copy; 2024 Discovery Partners Institute</p>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <h2>My courses</h2>
+    <div class="card-container">
+      <div class="card card-bg-1">
+        <div class="card-header">
+          <i class="fa-solid fa-book fa-xs"></i>
+          <p>View Syllabus</p>
+        </div>
+        <div class="card-content">
+          <img src="assets/card thumbnail.png" alt="thumbnail class 1">
+          <h4>Intoduction to Software Development Foundations (2023-7.1)</h4>
+        </div>
+        <div class="card-footer">
+          <p>In progress</p>
+          <div class="progress">
+            <div class="progress-bar-background">
+              <div class="progress-bar-fill"></div>
+            </div>
+            <p class="progress-percentage">75%</p>
+          </div>
+          <a href="/">
+            <img src="assets/arrow-default.png" alt="arrow">
+          </a>
+        </div>
+      </div>
+      <div class="card card-bg-2">
+        <div class="card-header">
+          <i class="fa-solid fa-book fa-xs"></i>
+          <p>View Syllabus</p>
+        </div>
+        <div class="card-content">
+          <img src="assets/card thumbnail 2.png" alt="thumbnail class 2">
+          <h4>Intoduction to Software Development Foundations (2023-7.1)</h4>
+        </div>
+        <div class="card-footer">
+          <p>Start now</p>
+          <a href="/">
+            <img src="assets/arrow-default.png" alt="arrow">
+          </a>
+        </div>
+      </div>
+    </div>
+      
+  </main>
+
 </body>
 </html>

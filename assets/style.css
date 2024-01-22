@@ -1,0 +1,264 @@
+:root {
+  --dpi-primary-color: rgb(23, 38, 98);
+  --dpi-accent-color: rgb(130, 213, 102);
+  --main-background-color: rgb(246, 245, 245);
+  --red-color: rgb(236, 101, 78);
+  --offwhite-color: rgb(227, 228, 236);
+  --light-grey-color: rgb(102, 102, 102);
+  --dark-grey-color: rgb(109, 109, 109);
+}
+
+* { 
+  box-sizing: border-box;
+  font-family: Helvetica, sans-serif;
+}
+
+body {
+  background-color: black;
+}
+
+/* Typography */
+h2 {
+  font-weight: 500;
+  font-size: min(1.4em, 2.2vw);
+}
+
+h4 {
+  font-weight: 400;
+  font-size: min(1.2em, 2vw);
+}
+
+/* Navigation elements */
+
+.logo {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo img {
+  margin: 2rem 0;
+  width: 50%;
+}
+
+.navbar a.nav-current::after {
+  content: "";
+  background-color: var(--dpi-accent-color);
+  position: absolute;
+  width: min(16px, 2vw);
+  height: min(20px, 2.5vw);
+  right: -max(8px, 1vw);
+}
+
+/* TO DO: make it scalable for more links */
+.nav-course-icon {
+  height: 18px;
+  width: 18px;
+  background-position: center;
+  background-image: url("Nav-course icon-hollow.svg");
+}
+
+a:hover .nav-course-icon, .nav-current i.nav-course-icon {
+  background-image: url("Nav-course icon-solid.svg");
+}
+
+.navbar {
+  background-color: var(--dpi-primary-color);
+  height: 97vh;
+  position: absolute;
+  z-index: 1;
+  color: white;
+  width: 21%;
+}
+
+.navbar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.navbar ul i, .navbar ul svg {
+  margin-right: 1rem;
+}
+
+.navbar ul a {
+  color: white;
+  text-decoration: none;
+  font-size: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  margin-bottom: 1rem;
+}
+
+.nav-current {
+  color: var(--red-color) !important;
+}
+
+.navbar a:hover {
+  color: var(--red-color);
+  background-color: transparent;
+}
+
+.nav-footer {
+  margin-bottom: 5px;
+}
+
+.copyright {
+  padding: 0.75rem;
+  font-size: 0.55rem;
+  color: var(--offwhite-color);
+  margin-bottom: 30px;
+}
+
+/* Main elements */
+
+main {
+  padding: 20px 40px;
+  margin-left: 21%;
+  height: 97vh;
+  background-color: var(--main-background-color);
+  background-image: url("illustration.png");
+  background-size: 60%;
+  background-repeat: no-repeat;
+  background-position: 90% 90%;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card-container img {
+  width: 60px;
+}
+
+.card {
+  background-color: white;
+  padding: 0.7rem;
+  margin: 0 15px 15px 0;
+  border: solid black 1px;
+  width: calc(60% / 2);
+  background-repeat: no-repeat;
+  background-position: top right;
+  background-size: min(200px, 75%);
+  min-height: min(40vh, 40vw);
+  display: flex;
+  flex-direction: column;
+}
+
+.card-bg-1 {
+  background-image: url("card bg-1.png");
+}
+
+.card-bg-2 {
+  background-image: url("card bg-2.png");
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  color: var(--dpi-primary-color);
+  opacity: 0.8;
+}
+
+.card-header p {
+  margin: 0 0 0 5px;
+  font-size: min(0.8em, 1.6vw);
+}
+
+.card-content {
+  flex-grow: 1;
+}
+
+.card-footer p:first-child {
+  font-size: min(0.8em, 1.6vw);
+  color: var(--dark-grey-color);
+  margin-bottom: 5px;
+}
+
+.card-footer img {
+  width: min(1.5rem, 2vw);
+  height: auto;
+}
+
+.card-footer a:hover img {
+  content: url("arrow-hover.png");
+}
+
+.card-footer a:active img {
+  content: url("arrow-pressed.png");
+}
+
+.progress {
+  display: flex;
+  align-items: center;
+}
+
+.progress-bar-background {
+  background-color: var(--dpi-primary-color);
+  border-radius: 10px;
+  height: 10px;
+  width: 85%;
+}
+
+.progress-bar-fill {
+  background-color: var(--red-color);
+  border: solid var(--dpi-primary-color) 2px;
+  border-radius: 10px;
+  height: 10px;
+  width: 75%;
+}
+
+.progress-percentage {
+  font-size: 0.6rem;
+  color: var(--light-grey-color);
+  margin-left: 5px;
+}
+
+/* Flexbox */
+
+.d-flex {
+  display: flex;
+}
+
+.d-flex-inline {
+  display: inline-flex;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.flex-centered {
+  justify-content: center;
+  align-items: center;
+}
+
+.justify-content-between {
+  justify-content: space-between;
+}
+
+/* Responsiveness */
+
+@media (max-width: 800px) {
+  .navbar {
+    width: 30%;
+  }
+  
+  main {
+    margin-left: 30%;
+    background-position: 100% 90%;
+    background-size: 90%;
+    padding: 20px 0 0 30px;
+  }
+  
+  .card {
+    width: calc(90% / 2);
+  }
+
+  .card-content img {
+    width: 40px;
+  }
+}
